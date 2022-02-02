@@ -1,9 +1,18 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Markdown HTML Converter</PageTitle>
 
-<h1>Hello, world!</h1>
+<DropZone Style="height: 100%;" OnFileSelected=@Convert/>
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    async Task Convert(InputFileChangeEventArgs args)
+    {
+        //foreach(var file in args.GetMultipleFiles())
+        //{
+        //    var stream = file.OpenReadStream();
+        //    stream.Read
+        //}
+        //var pipeline = new MarkdownPipelineBuilder();
+        //Markdown.ToHtml();
+    }
+}
