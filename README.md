@@ -1,5 +1,5 @@
 # [MarkdownConverter](https://s1v.github.io/MarkdownConverter/)
 Convert Markdown(.md) to HTML.
 
-FileSizeLimit : `50MB`
-Support Format : `.md` and `.markdown`
+- FileSizeLimit : `50MB`
+- Support Format : `.md` and `.markdown`
