@@ -30,7 +30,7 @@
 ::deep .drop-zone .drop-text {
     font-size: x-large;
     font-weight: bold;
-    word-break: break-all;
+    word-break: break-word;
     user-select: none;
 }
 
