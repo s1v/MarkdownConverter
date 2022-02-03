@@ -325,7 +325,7 @@
       "url": "_framework\/Toolbelt.Blazor.FileDropZone.dll.br"
     },
     {
-      "hash": "sha256-SzmSCQgKJBVstvraU+h\/FEGy2SkKo\/UeGH575MIzgcc=",
+      "hash": "sha256-B3ez7A\/LaZZLKStuwHS2sxIKo++aR21eFYI6J8vQqlo=",
       "url": "MarkdownConverter.styles.css"
     },
     {
@@ -353,5 +353,5 @@
       "url": "brotliloader.min.js"
     }
   ],
-  "version": "PEfOjPBG"
+  "version": "8jJMrqyh"
 };
