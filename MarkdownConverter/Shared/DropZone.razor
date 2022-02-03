@@ -1,9 +1,8 @@
 ﻿<div style=@Style>
-    <FileDropZone class="drop-zone">
-
+    <FileDropZone class="drop-zone" style="@(selectedFiles.Any() ? "border: none; background-color: transparent;" : null)">
+        <InputFile id="inputfile" OnChange=@OnInputFileChanged multiple accept=@allowExtensions Style="display:none;" />
         @if (!selectedFiles.Any())
         {
-            <InputFile id="inputfile" OnChange=@OnInputFileChanged multiple accept=@allowExtensions Style="display:none;" />
             <label for="inputfile">
                 <span class="drop-text">Drag and Drop Markdown Files Here</span>
             </label>

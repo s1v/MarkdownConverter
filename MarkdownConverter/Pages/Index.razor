@@ -2,17 +2,44 @@
 
 <PageTitle>Markdown HTML Converter</PageTitle>
 
-<DropZone Style="height: 100%;" OnFileSelected=@Convert/>
+<DropZone Style="height: 100%;" OnFileSelected=@Convert />
 
 @code {
+    [Inject]
+    IBlazorDownloadFileService downloader { get; set; } = default!;
+
     async Task Convert(InputFileChangeEventArgs args)
     {
-        //foreach(var file in args.GetMultipleFiles())
-        //{
-        //    var stream = file.OpenReadStream();
-        //    stream.Read
-        //}
-        //var pipeline = new MarkdownPipelineBuilder();
-        //Markdown.ToHtml();
+        await downloader.DownloadFileAsync("MarkdownHTMLs.zip", await CreateZip(args.GetMultipleFiles(args.FileCount)));
+    }
+
+    async Task<string> GetMarkdownFromStream(Stream stream)
+    {
+        using (var reader = new StreamReader(stream))
+        {
+            return Markdown.ToHtml(await reader.ReadToEndAsync());
+        }
+    }
+
+    async Task<byte[]> CreateZip(IEnumerable<IBrowserFile> files)
+    {
+        using (MemoryStream zipStream = new MemoryStream())
+        {
+            using (ZipArchive archive = new ZipArchive(zipStream, ZipArchiveMode.Create))
+            {
+                foreach (var file in files)
+                {
+                    ZipArchiveEntry fileEntry = archive.CreateEntry(file.Name);
+                    using (var fileStream = file.OpenReadStream(52428800))
+                    {
+                        using (StreamWriter writer = new StreamWriter(fileEntry.Open()))
+                        {
+                            writer.WriteLine(await GetMarkdownFromStream(fileStream));
+                        }
+                    }
+                }
+            }
+            return zipStream.ToArray();
+        }
     }
 }
