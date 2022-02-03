@@ -11,7 +11,7 @@
         else
         {
             <div class="result">
-                <MudList Style="padding: 1rem;" Dense="true">
+                <MudList Style="margin: 1rem; overflow-x: hidden; background-color: rgba(255, 255, 255, 0.05)" Dense="true">
                     @foreach (var file in selectedFiles)
                     {
                         <MudListItem @key="@file.Name">
@@ -50,7 +50,7 @@
     {
         await Task.Run(() =>
         {
-            selectedFiles = e.GetMultipleFiles().Where(file => allowExtensions.Contains(Path.GetExtension(file.Name))).ToList();
+            selectedFiles = e.GetMultipleFiles(e.FileCount).Where(file => allowExtensions.Contains(Path.GetExtension(file.Name))).ToList();
         });
     }
 
