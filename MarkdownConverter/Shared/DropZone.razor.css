@@ -1,45 +1,54 @@
 ﻿::deep .drop-zone {
-    border: dashed 2px #594ae2ff;
-    transition: border linear 0.1s;
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: rgba(255,255,255,0.05);
     padding: 2rem;
     height: 100%;
 }
 
-    ::deep .drop-zone.hover {
+::deep .enabled-zone {
+    border: dashed 2px #594ae2ff;
+    transition: border linear 0.1s;
+    background-color: rgba(255,255,255,0.05);
+}
+
+    ::deep .enabled-zone.hover {
         border: dashed 2px #ff4081ff;
     }
 
-    ::deep .drop-zone input {
-        width: 100%;
-        height: 100px;
-        visibility: hidden;
-    }
+::deep .disabled-zone {
+    border: none;
+    background-color: transparent;
+}
 
-    ::deep .drop-zone .drop-text {
-        font-size: x-large;
-        font-weight: bold;
-        word-break: break-all;
-    }
+::deep .drop-zone input {
+    width: 100%;
+    height: 100px;
+    visibility: hidden;
+}
 
-    ::deep .drop-zone label {
-        width: 100%;
-        height: 100%;
-        background-color: transparent;
-        z-index: 1;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+::deep .drop-zone .drop-text {
+    font-size: x-large;
+    font-weight: bold;
+    word-break: break-all;
+    user-select: none;
+}
 
-    ::deep .drop-zone .result {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-flow: column;
-        place-content: space-between;
-    }
+::deep .drop-zone label {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::deep .drop-zone .result {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    place-content: space-between;
+}

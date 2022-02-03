@@ -1,3 +1,77 @@
-﻿.page-content {
+﻿#app {
+    background: #32333dff;
+}
+
+.page-content {
     height: 100%;
+}
+
+.boot-loader,
+.boot-loader:before,
+.boot-loader:after {
+    background: #594ae2;
+    -webkit-animation: boot-load 1s infinite ease-in-out;
+    animation: boot-load 1s infinite ease-in-out;
+    width: 1em;
+    height: 4em;
+}
+
+.boot-loader {
+    color: #594ae2;
+    text-indent: -9999em;
+    position: relative;
+    font-size: 11px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+    .boot-loader:before,
+    .boot-loader:after {
+        position: absolute;
+        top: 0;
+        content: '';
+    }
+
+    .boot-loader:before {
+        left: -1.5em;
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .boot-loader:after {
+        left: 1.5em;
+    }
+
+@-webkit-keyframes boot-load {
+    0%, 80%, 100% {
+        box-shadow: 0 0;
+        height: 4em;
+    }
+
+    40% {
+        box-shadow: 0 -2em;
+        height: 5em;
+    }
+}
+
+@keyframes boot-load {
+    0%, 80%, 100% {
+        box-shadow: 0 0;
+        height: 4em;
+    }
+
+    40% {
+        box-shadow: 0 -2em;
+        height: 5em;
+    }
+}
+
+.boot-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }

@@ -1,5 +1,5 @@
 ﻿<div style=@Style>
-    <FileDropZone class="drop-zone" style="@(selectedFiles.Any() ? "border: none; background-color: transparent;" : null)">
+    <FileDropZone class="@("drop-zone" + (selectedFiles.Any() ? " disabled-zone" : " enabled-zone"))">
         <InputFile id="inputfile" OnChange=@OnInputFileChanged multiple accept=@allowExtensions Style="display:none;" />
         @if (!selectedFiles.Any())
         {
