@@ -2,3 +2,4 @@
 Convert Markdown(.md) to HTML.
 
 FileSizeLimit : `50MB`
+Support Format : `.md` and `.markdown`
