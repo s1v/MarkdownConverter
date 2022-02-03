@@ -13,7 +13,7 @@
         await downloader.DownloadFileAsync("MarkdownHTMLs.zip", await CreateZip(args.GetMultipleFiles(args.FileCount)));
     }
 
-    async Task<string> GetMarkdownFromStream(Stream stream)
+    async Task<string> GetHtmlFromStream(Stream stream)
     {
         using (var reader = new StreamReader(stream))
         {
@@ -34,7 +34,7 @@
                     {
                         using (StreamWriter writer = new StreamWriter(fileEntry.Open()))
                         {
-                            writer.WriteLine(await GetMarkdownFromStream(fileStream));
+                            writer.WriteLine(await GetHtmlFromStream(fileStream));
                         }
                     }
                 }
