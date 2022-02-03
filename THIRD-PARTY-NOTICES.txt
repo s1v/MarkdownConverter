@@ -5,7 +5,7 @@
 3. Toolbelt.Blazor.FileDropZone (https://github.com/jsakamoto/Toolbelt.Blazor.FileDropZone/)
 4. Blazor.DownloadFileFast (https://github.com/StefH/Blazor.DownloadFileFast)
 5. SpinKit (https://github.com/tobiasahlin/SpinKit)
-6. Font Awesome (https://fontawesome.com/)
+6. FontAwesome (https://fontawesome.com/)
 
 %% License notice for Markdig 
 =========================================
