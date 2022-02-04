@@ -6,18 +6,20 @@
 
 @code {
     [Inject]
-    IBlazorDownloadFileService downloader { get; set; } = default!;
+    IBlazorDownloadFileService _downloader { get; set; } = default!;
+
+    MarkdownPipeline _mdPepeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().UsePrism().Build();
 
     async Task Convert(InputFileChangeEventArgs args)
     {
-        await downloader.DownloadFileAsync("MarkdownHTMLs.zip", await CreateZip(args.GetMultipleFiles(args.FileCount)));
+        await _downloader.DownloadFileAsync("MarkdownHTMLs.zip", await CreateZip(args.GetMultipleFiles(args.FileCount)));
     }
 
     async Task<string> GetHtmlFromStream(Stream stream)
     {
         using (var reader = new StreamReader(stream))
         {
-            return Markdown.ToHtml(await reader.ReadToEndAsync());
+            return Markdown.ToHtml(await reader.ReadToEndAsync(), _mdPepeline);
         }
     }
 
