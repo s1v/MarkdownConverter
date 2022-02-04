@@ -29,7 +29,7 @@
             {
                 foreach (var file in files)
                 {
-                    ZipArchiveEntry fileEntry = archive.CreateEntry($"{Path.GetFileNameWithoutExtension(file.Name)}.md");
+                    ZipArchiveEntry fileEntry = archive.CreateEntry($"{Path.GetFileNameWithoutExtension(file.Name)}.html");
                     using (var fileStream = file.OpenReadStream(52428800))
                     {
                         using (StreamWriter writer = new StreamWriter(fileEntry.Open()))
