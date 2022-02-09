@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<PageTitle>MD 2 HTML</PageTitle>
+<PageTitle>Markdown HTML Converter</PageTitle>
 
 <DropZone Style="height: 100%;" OnFileSelected=@Convert />
 
@@ -8,7 +8,7 @@
     [Inject]
     IBlazorDownloadFileService _downloader { get; set; } = default!;
 
-    MarkdownPipeline _mdPepeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().UsePrism().Build();
+    MarkdownPipeline _mdPepeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
 
     async Task Convert(InputFileChangeEventArgs args)
     {
